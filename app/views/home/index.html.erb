@@ -1,0 +1,54 @@
+<% if current_user %>
+
+<p><%= @categories.inspect %></p>
+<p><%= @tasks.inspect %></p>
+<p><%= @task_id.inspect %></p>
+<p><%= @categories_tasks.inspect %></p>
+
+<h1>To Do List</h1>
+<table class="table table-striped">
+  <thead>
+    <tr class="bg-dark text-white">
+      <th scope="col">Category</th>
+      <th scope="col">Task</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+        <% @categories_tasks.each do |catta|%>
+            <% if catta.id == task.category_id %>
+            <tr>
+                <td><%= catta.title %></td>
+                <td><%= task.title %></td>
+                <td><%= task.is_completed %></td>
+                <td>
+                <%= button_to "Destroy", task_path(task.id) , method: :delete, class:"btn btn-danger"%>
+                <%= link_to "Show this task", task_path(task.id) %> |
+                <%= link_to "Edit this task", edit_task_path(task.id) %> |
+                </td>
+            </tr>
+            <% else %>
+          
+            <% end %>
+        <% end %>
+    <% end %>
+   
+  </tbody>
+  <% else%>
+    <div class="card position-absolute top-50 start-50 translate-middle " style="width: 25rem; height: 20rem;">
+      <h1 class="text-center my-5">Welcome to your Wonderful Planner!</h1>
+
+      <div class="card-body bg-black text-center pb-4">
+      <h5 class="card-title text-white">Planner</h5>
+      <p class="card-text text-white">What are you working on today?</p>
+
+      <%= link_to "Sign Up!", new_user_registration_path, class:"btn btn-outline-warning me-2 " %> 
+  
+      <%= link_to "Login", new_user_session_path, class:"btn btn-outline-warning " %>
+      </div>
+    </div>
+  <% end %>
+  <%= @set_category %> 
+</table>
