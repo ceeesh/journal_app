@@ -39,16 +39,18 @@
   </tbody>
   </div>
   <% else%>
-    <div class="card position-absolute top-50 start-50 translate-middle " style="width: 25rem; height: 20rem;">
+    <div class="card position-absolute top-50 start-50 translate-middle text-white bg-dark" style="width: 25rem; height: 20rem;">
+
+    
       <h1 class="text-center my-5">Welcome to your Wonderful Planner!</h1>
 
       <div class="card-body bg-black text-center pb-4">
       <h5 class="card-title text-white">Planner</h5>
       <p class="card-text text-white">What are you working on today?</p>
 
-      <%= link_to "Sign Up!", new_user_registration_path, class:"btn btn-outline-warning me-2 " %> 
+      <%= link_to "Sign Up!", new_user_registration_path, class:"btn btn-outline-info me-2 " %> 
   
-      <%= link_to "Login", new_user_session_path, class:"btn btn-outline-warning " %>
+      <%= link_to "Login", new_user_session_path, class:"btn btn-outline-info " %>
       </div>
     </div>
   <% end %>
