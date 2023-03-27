@@ -1,16 +1,16 @@
-<% if current_user %>
+<% if user_signed_in? %>
 
-<p><%= @categories.inspect %></p>
-<p><%= @tasks.inspect %></p>
-<p><%= @task_id.inspect %></p>
-<p><%= @categories_tasks.inspect %></p>
 
-<h1>To Do List</h1>
-<table class="table table-striped">
+<div class="mt-5">
+<h1 class="d-inline ">TODO List</h1>
+<p class="d-inline ms-2 fw-bolder"><%=link_to "Create New Category", new_category_path, class:"text-dark text-decoration-none link-primary" %></p> 
+<p class="d-inline ms-2 fw-bolder"><%=link_to "Create New Task", new_task_path, class:"text-dark text-decoration-none link-primary" %></p>
+<table class="table table-striped table-hover">
   <thead>
     <tr class="bg-dark text-white">
-      <th scope="col">Category</th>
+      <th scope="col"><%= link_to "Category", categories_path, class: "text-decoration-none text-white link-primary" %></th>
       <th scope="col">Task</th>
+      <th scope="col">Body</th>
       <th scope="col">Status</th>
       <th scope="col">Action</th>
     </tr>
@@ -20,13 +20,14 @@
         <% @categories_tasks.each do |catta|%>
             <% if catta.id == task.category_id %>
             <tr>
-                <td><%= catta.title %></td>
+                <td><%=link_to catta.title, catta, class:"text-dark text-decoration-none link-primary fw-bold text-uppercase" %></td>
                 <td><%= task.title %></td>
+                <td><%= task.body %></td>
                 <td><%= task.is_completed %></td>
                 <td>
-                <%= button_to "Destroy", task_path(task.id) , method: :delete, class:"btn btn-danger"%>
-                <%= link_to "Show this task", task_path(task.id) %> |
-                <%= link_to "Edit this task", edit_task_path(task.id) %> |
+                <%= button_to "Delete", task_path(task.id) , method: :delete, class:"btn btn-danger d-inline-block mb-1", style:"width: 35%; font-size: 12px;"%>
+                <%= link_to "Edit", edit_task_path(task.id), class:"btn btn-danger d-inline-block mb-1", style:"width: 35%; font-size: 12px;" %>
+                <%= link_to "View", task_path(task.id), class:"btn btn-danger d-block ", style:"width: 35%; font-size: 12px;" %>
                 </td>
             </tr>
             <% else %>
@@ -36,6 +37,7 @@
     <% end %>
    
   </tbody>
+  </div>
   <% else%>
     <div class="card position-absolute top-50 start-50 translate-middle " style="width: 25rem; height: 20rem;">
       <h1 class="text-center my-5">Welcome to your Wonderful Planner!</h1>
