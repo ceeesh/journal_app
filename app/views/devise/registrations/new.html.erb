@@ -1,9 +1,10 @@
-<div class="card position-absolute top-50 start-50 translate-middle">
-<h2>Sign up</h2>
+<div class="card position-absolute top-50 start-50 translate-middle text-white bg-dark" style="height: 25rem; width: 25rem">
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
+<div class="position-absolute top-50 start-50 translate-middle" style="height: 15rem; width: 15rem; text-align: center;">
+<h2>Sign up</h2>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -26,6 +27,6 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>
+</div>
 </div>

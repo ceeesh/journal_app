@@ -5,18 +5,23 @@
 
       <ul>
         <% category.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li class="list-unstyled"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
+<div class="card position-absolute top-50 start-50 translate-middle" style="height: 25rem; width: 25rem">
+<div class="position-absolute top-50 start-50 translate-middle" style="height: 15rem; width: 15rem; text-align: center;">
   <div>
-    <%= form.label :title, style: "display: block" %>
+    <%= form.label :title, style: "display: block; font-weight:bold; text-transform: uppercase;" %>
     <%= form.text_field :title %>
   </div>
 
-  <div>
+  <div class="mt-2">
     <%= form.submit %>
   </div>
+  </div>
+  </div>
 <% end %>
+

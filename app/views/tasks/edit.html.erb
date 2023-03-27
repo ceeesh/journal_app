@@ -1,11 +1,14 @@
+<div  style="text-align: center; margin-top: 3rem;">
 <h1>Editing task</h1>
 
-<%= render "form", task: @task %>
+
+<%= render "form", task: @task, class: "mt-2" %>
 
 <br>
 
-<div>
+<div >
   <%= link_to "Show this task", @task %> |
   <%= link_to "Back to home", root_path %>
 
+</div>
 </div>

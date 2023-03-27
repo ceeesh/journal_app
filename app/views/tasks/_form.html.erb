@@ -1,34 +1,38 @@
 <%= form_with(model: task) do |form| %>
   <% if task.errors.any? %>
-    <div style="color: red">
+    <div style="color: red; margin: auto; width: 50%;">
       <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
       <ul>
         <% task.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li class="list-unstyled"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
+<div class="card position-absolute top-50 start-50 translate-middle" style="height: 25rem; width: 25rem">
+
+<div class="position-absolute top-50 start-50 translate-middle" style="height: 15rem; width: 15rem; text-align: center;">
   <div>
-    <%= form.label :title, style: "display: block" %>
+    <%= form.label :title, style: "display: block; font-weight:bold; text-transform: uppercase;" %>
     <%= form.text_field :title %>
   </div>
 
   <div>
-    <%= form.label :body, style: "display: block" %>
+    <%= form.label :body, style: "display: block; font-weight:bold; text-transform: uppercase;" %>
     <%= form.text_field :body %>
   </div>
 
-  <div>
-  <%= form.label :category, style:"display: block" %>
-  <%= form.select :category_id, options_for_select(@categories.collect { |cat| [cat.title, cat.id]})%>
+  <div class="mt-2">
+  <%= form.label :category, style:"display: block; font-weight:bold; text-transform: uppercase;" %>
+  <%= form.select :category_id, options_for_select(@categories.collect { |cat| [cat.title, cat.id]}) %>
   
   </div>
 
-  <div>
+  <div class="mt-2">
     <%= form.submit %>
   </div>
 <% end %>
-
+</div>
+</div>
