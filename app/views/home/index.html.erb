@@ -10,9 +10,9 @@
     <tr class="bg-dark text-dark">
       <th scope="col"><%= link_to "Category", categories_path, class: "text-decoration-none text-dark link-primary" %></th>
       <th scope="col">Task</th>
-      <th scope="col">Body</th>
-      <th scope="col">Status</th>
-      <th scope="col">Action</th>
+      <th scope="col">Description</th>
+   
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -23,7 +23,7 @@
                 <td><%=link_to catta.title, catta, class:"text-dark text-decoration-none link-primary fw-bold text-uppercase" %></td>
                 <td><%= task.title %></td>
                 <td><%= task.body %></td>
-                <td><%= task.is_completed %></td>
+         
                 <td>
                 <%= button_to "Delete", task_path(task.id) , method: :delete, class:"btn btn-danger d-inline-block mb-1", style:"width: 35%; font-size: 12px;"%>
                 <%= link_to "Edit", edit_task_path(task.id), class:"btn btn-danger d-inline-block mb-1", style:"width: 35%; font-size: 12px;" %>

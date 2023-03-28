@@ -1,11 +1,9 @@
 <%= form_with(model: task) do |form| %>
   <% if task.errors.any? %>
     <div style="color: red; margin: auto; width: 50%;">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
       <ul>
         <% task.errors.each do |error| %>
-          <li class="list-unstyled"><%= error.full_message %></li>
+          <li class="list-unstyled fw-bold text-uppercase"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>

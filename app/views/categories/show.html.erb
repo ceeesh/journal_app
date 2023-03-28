@@ -1,10 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @category %>
 
-<div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to home", root_path %>
+
+<div class="card position-absolute top-50 start-50 translate-middle text-white bg-dark" style="height: 25rem; width: 25rem;">
+ <div class="position-absolute top-50 start-50 translate-middle " style="width: 20rem; " >
+  <%= render @category %>
+  <%= link_to "Edit this category", edit_category_path(@category), class: "text-decoration-none d-block mt-5 " %> 
+  <%= link_to "Back to home", root_path, class: "text-decoration-none" %>
 
   <% if @category.tasks.length != 0 %>
  
@@ -14,5 +16,5 @@
   <p class="text-danger">All the tasks in this category are completed</p>
   <% end %>
 
- 
+ </div>
 </div>

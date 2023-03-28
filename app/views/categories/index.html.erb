@@ -1,12 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-  <h1>Categories</h1>
+ 
 
-  <div>
+  <div class="card position-absolute top-50 start-50 translate-middle text-white bg-dark" style="height: 25rem; width: 25rem;">
+  <div class="position-absolute top-50 start-50 translate-middle" >
+   <h1>Categories</h1>
     <ul>
       <% @categories.each do |category| %>
-      <li class="list-unstyled"><%=link_to category.title, category, class:"text-dark text-decoration-none link-primary" %></li>
+      <li class=""><%=link_to category.title, category, class:" text-decoration-none text-white link-danger " %></li>
       <% end %>
     </ul>
-    
+    </div>
   </div>

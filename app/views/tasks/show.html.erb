@@ -1,10 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @task %>
 
-<div>
-  <%= link_to "Edit this task", edit_task_path(@task) %> |
+
+<div class="card position-absolute top-50 start-50 translate-middle text-white bg-dark" style="height: 25rem; width: 25rem;">
+ <div class="position-absolute top-50 start-50 translate-middle " style="width: 20rem; " >
+  <%= render @task %>
+  <%= link_to "Edit this task", edit_task_path(@task), class: "d-block" %>
   <%= link_to "Back to home", root_path %>
 
-  <%= button_to "Destroy this task", @task, method: :delete %>
+  <%= button_to "Destroy this task", @task, method: :delete, class: "btn btn-warning mt-2" %>
+</div>
 </div>
